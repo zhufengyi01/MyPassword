@@ -15,12 +15,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-Gu-a1b">
-                        <rect key="frame" x="142" y="23.5" width="120" height="120"/>
+                        <rect key="frame" x="162" y="43.5" width="80" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="120" id="Tug-zL-mzW"/>
-                            <constraint firstAttribute="width" constant="120" id="fgV-8A-WLC"/>
+                            <constraint firstAttribute="height" constant="80" id="Tug-zL-mzW"/>
+                            <constraint firstAttribute="width" constant="80" id="fgV-8A-WLC"/>
                         </constraints>
                         <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="logoBtnClickEvent:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4G1-ah-X5W"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -28,6 +31,9 @@
                     <constraint firstItem="YDT-Gu-a1b" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="vfO-j0-nsk"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="logoBtn" destination="YDT-Gu-a1b" id="NQb-h7-Hb2"/>
+            </connections>
             <point key="canvasLocation" x="328" y="325.5"/>
         </tableViewCell>
     </objects>

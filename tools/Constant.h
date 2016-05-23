@@ -48,5 +48,8 @@
 #define COLOR_TITLE_TWO RGB(80, 80, 80)
 
 
+#define COLOR_TITLE_THREE RGB(160, 160, 160)
+
+
 
 #endif /* Constant_h */

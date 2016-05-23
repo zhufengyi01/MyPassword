@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor =COLOR_MAINBACKGROUND;
+    [self.tableView setTableFooterView:[UIView new]];
     
 }
 
@@ -50,5 +51,17 @@
     [self.tableView registerClass:class forCellReuseIdentifier:identifier];
 }
 
+
+
+#pragma TableViewDelegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
+}
 
 @end

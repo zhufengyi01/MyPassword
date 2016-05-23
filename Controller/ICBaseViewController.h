@@ -12,11 +12,20 @@
 
 @interface ICBaseViewController : UITableViewController
 
+
+
+@property(nonatomic,strong)NSMutableArray *dataSource;
+
+
 /**
  *  默认的cell重用标示符
  */
 @property (nonatomic, strong) NSString * defaultCellReuseIdentifier;
 
+/**
+ *  注册cell
+ */
+- (void)registerCellWithNibName:(NSString *)nibName reuseIdentifier:(NSString *)identifier;
 
-
+- (void)registerCellWithClassName:(NSString *)className reuseIdentifier:(NSString *)identifier;
 @end

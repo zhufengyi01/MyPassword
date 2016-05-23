@@ -30,6 +30,9 @@
 
 @implementation ICFullScreenAnd3DNavigation
 
+
+
+
 - (void)dealloc {
     
     [self.backgroundView removeFromSuperview];
@@ -69,8 +72,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.interactivePopGestureRecognizer.delegate = nil;
-    
+    self.interactivePopGestureRecognizer.enabled = NO;
     self.navigationBar.translucent = NO;
+
     
     [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     
@@ -95,6 +99,7 @@
     recognizer.delegate = self;
     //[recognizer delaysTouchesBegan];
     [self.view addGestureRecognizer:recognizer];
+    
 }
 
 
@@ -111,10 +116,8 @@
     
 }
 
-
 // override the push method
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
     
     if ([viewController isKindOfClass:[UIViewController class]]) {
         
@@ -184,10 +187,9 @@
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
+        
     if (self.viewControllers.count <= 1 || !self.dragBackEnable)
         return NO;
-    
     return YES;
 }
 
@@ -282,6 +284,5 @@
             break;
     }
 }
-
 
 @end

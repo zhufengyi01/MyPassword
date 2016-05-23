@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ICMainViewController.h"
+#import "ICFullScreenAnd3DNavigation.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // ICFullScreenAnd3DNavigation
+    ICFullScreenAnd3DNavigation *na = [[ICFullScreenAnd3DNavigation alloc] initWithRootViewController:[ICMainViewController new]];
+    self.window.rootViewController  =na;
+
     return YES;
 }
 

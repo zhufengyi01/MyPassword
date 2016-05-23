@@ -10,6 +10,9 @@
 
 @interface ICAddPasswordViewController ()
 
+@property(nonatomic,strong) ICLogoTableViewCell *logoCell;
+
+
 
 @end
 
@@ -22,6 +25,20 @@
     [self createNavigation];
 
 }
+
+
+#pragma mark Getter Megthod
+
+-(ICLogoTableViewCell *)logoCell{
+    if (!_logoCell) {
+        
+        [self registerCellWithNibName:NSStringFromClass([ICLogoTableViewCell class]) reuseIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
+        _logoCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
+    }
+    return _logoCell;
+}
+
+
 
 #pragma mark Privite Method
 -(void)createNavigation
@@ -38,6 +55,31 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+#pragma mark Delegate 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120.0f;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ 
+    if (indexPath.row==0) {
+        
+        return self.logoCell;
+    }
+    return [UITableViewCell new];
+}
+
+
+
 
 
 

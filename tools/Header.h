@@ -16,6 +16,13 @@
 #import "ICDetailViewController.h"
 #import "ICAddPasswordViewController.h"
 #import "ICBaseTableViewCell.h"
+
+
+#import "ICBaseTableViewCell.h"
+#import "ICLogoTableViewCell.h"
+#import "ICPlatformNameTableViewCell.h"
+#import "ICPlatformPasswordTableViewCell.h"
+
 #import "KeyModel.h"
 
 

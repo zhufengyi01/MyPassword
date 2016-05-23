@@ -15,6 +15,22 @@
 		38660F991CF298ED00D6545C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38660F971CF298ED00D6545C /* LaunchScreen.storyboard */; };
 		38660FA41CF298ED00D6545C /* MyPasswordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FA31CF298ED00D6545C /* MyPasswordTests.m */; };
 		38660FAF1CF298ED00D6545C /* MyPasswordUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FAE1CF298ED00D6545C /* MyPasswordUITests.m */; };
+		38660FC21CF2993A00D6545C /* nav_return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38660FBE1CF2993A00D6545C /* nav_return@2x.png */; };
+		38660FC31CF2993A00D6545C /* nav_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38660FBF1CF2993A00D6545C /* nav_return@3x.png */; };
+		38660FCA1CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38660FC41CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf */; };
+		38660FCB1CF299B100D6545C /* ICFullScreenAnd3DNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FC81CF299B100D6545C /* ICFullScreenAnd3DNavigation.m */; };
+		38660FD71CF299BA00D6545C /* ICBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FCD1CF299BA00D6545C /* ICBaseTableViewCell.m */; };
+		38660FD81CF299BA00D6545C /* ICLogoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FCF1CF299BA00D6545C /* ICLogoTableViewCell.m */; };
+		38660FD91CF299BA00D6545C /* ICLogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38660FD01CF299BA00D6545C /* ICLogoTableViewCell.xib */; };
+		38660FDA1CF299BA00D6545C /* ICPlatformNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FD21CF299BA00D6545C /* ICPlatformNameTableViewCell.m */; };
+		38660FDB1CF299BA00D6545C /* ICPlatformNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38660FD31CF299BA00D6545C /* ICPlatformNameTableViewCell.xib */; };
+		38660FDC1CF299BA00D6545C /* ICPlatformPasswordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FD51CF299BA00D6545C /* ICPlatformPasswordTableViewCell.m */; };
+		38660FDD1CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38660FD61CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib */; };
+		38660FE61CF299C800D6545C /* ICAddPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FDF1CF299C800D6545C /* ICAddPasswordViewController.m */; };
+		38660FE71CF299C800D6545C /* ICBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FE11CF299C800D6545C /* ICBaseViewController.m */; };
+		38660FE81CF299C800D6545C /* ICDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FE31CF299C800D6545C /* ICDetailViewController.m */; };
+		38660FE91CF299C800D6545C /* ICMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FE51CF299C800D6545C /* ICMainViewController.m */; };
+		38660FED1CF29A3300D6545C /* KeyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FEC1CF29A3300D6545C /* KeyModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +67,35 @@
 		38660FAA1CF298ED00D6545C /* MyPasswordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPasswordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38660FAE1CF298ED00D6545C /* MyPasswordUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPasswordUITests.m; sourceTree = "<group>"; };
 		38660FB01CF298ED00D6545C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38660FBE1CF2993A00D6545C /* nav_return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_return@2x.png"; sourceTree = "<group>"; };
+		38660FBF1CF2993A00D6545C /* nav_return@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_return@3x.png"; sourceTree = "<group>"; };
+		38660FC41CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正兰亭纤黑_GBK.ttf"; sourceTree = "<group>"; };
+		38660FC51CF299B100D6545C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		38660FC61CF299B100D6545C /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		38660FC71CF299B100D6545C /* ICFullScreenAnd3DNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFullScreenAnd3DNavigation.h; sourceTree = "<group>"; };
+		38660FC81CF299B100D6545C /* ICFullScreenAnd3DNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICFullScreenAnd3DNavigation.m; sourceTree = "<group>"; };
+		38660FCC1CF299BA00D6545C /* ICBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBaseTableViewCell.h; sourceTree = "<group>"; };
+		38660FCD1CF299BA00D6545C /* ICBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICBaseTableViewCell.m; sourceTree = "<group>"; };
+		38660FCE1CF299BA00D6545C /* ICLogoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICLogoTableViewCell.h; sourceTree = "<group>"; };
+		38660FCF1CF299BA00D6545C /* ICLogoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICLogoTableViewCell.m; sourceTree = "<group>"; };
+		38660FD01CF299BA00D6545C /* ICLogoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ICLogoTableViewCell.xib; sourceTree = "<group>"; };
+		38660FD11CF299BA00D6545C /* ICPlatformNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPlatformNameTableViewCell.h; sourceTree = "<group>"; };
+		38660FD21CF299BA00D6545C /* ICPlatformNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICPlatformNameTableViewCell.m; sourceTree = "<group>"; };
+		38660FD31CF299BA00D6545C /* ICPlatformNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ICPlatformNameTableViewCell.xib; sourceTree = "<group>"; };
+		38660FD41CF299BA00D6545C /* ICPlatformPasswordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPlatformPasswordTableViewCell.h; sourceTree = "<group>"; };
+		38660FD51CF299BA00D6545C /* ICPlatformPasswordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICPlatformPasswordTableViewCell.m; sourceTree = "<group>"; };
+		38660FD61CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ICPlatformPasswordTableViewCell.xib; sourceTree = "<group>"; };
+		38660FDE1CF299C800D6545C /* ICAddPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICAddPasswordViewController.h; sourceTree = "<group>"; };
+		38660FDF1CF299C800D6545C /* ICAddPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICAddPasswordViewController.m; sourceTree = "<group>"; };
+		38660FE01CF299C800D6545C /* ICBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBaseViewController.h; sourceTree = "<group>"; };
+		38660FE11CF299C800D6545C /* ICBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICBaseViewController.m; sourceTree = "<group>"; };
+		38660FE21CF299C800D6545C /* ICDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDetailViewController.h; sourceTree = "<group>"; };
+		38660FE31CF299C800D6545C /* ICDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDetailViewController.m; sourceTree = "<group>"; };
+		38660FE41CF299C800D6545C /* ICMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMainViewController.h; sourceTree = "<group>"; };
+		38660FE51CF299C800D6545C /* ICMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICMainViewController.m; sourceTree = "<group>"; };
+		38660FEB1CF29A3300D6545C /* KeyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyModel.h; sourceTree = "<group>"; };
+		38660FEC1CF29A3300D6545C /* KeyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyModel.m; sourceTree = "<group>"; };
+		38660FEE1CF29EDE00D6545C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +126,11 @@
 		38660F7D1CF298ED00D6545C = {
 			isa = PBXGroup;
 			children = (
+				38660FEA1CF29A3300D6545C /* Model */,
+				38660FBC1CF2993A00D6545C /* Controller */,
+				38660FBD1CF2993A00D6545C /* Images */,
+				38660FC01CF2993A00D6545C /* tools */,
+				38660FC11CF2993A00D6545C /* View */,
 				38660F881CF298ED00D6545C /* MyPassword */,
 				38660FA21CF298ED00D6545C /* MyPasswordTests */,
 				38660FAD1CF298ED00D6545C /* MyPasswordUITests */,
@@ -101,6 +151,7 @@
 		38660F881CF298ED00D6545C /* MyPassword */ = {
 			isa = PBXGroup;
 			children = (
+				38660FEE1CF29EDE00D6545C /* PrefixHeader.pch */,
 				38660F8C1CF298ED00D6545C /* AppDelegate.h */,
 				38660F8D1CF298ED00D6545C /* AppDelegate.m */,
 				38660F8F1CF298ED00D6545C /* ViewController.h */,
@@ -138,6 +189,69 @@
 				38660FB01CF298ED00D6545C /* Info.plist */,
 			);
 			path = MyPasswordUITests;
+			sourceTree = "<group>";
+		};
+		38660FBC1CF2993A00D6545C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38660FDE1CF299C800D6545C /* ICAddPasswordViewController.h */,
+				38660FDF1CF299C800D6545C /* ICAddPasswordViewController.m */,
+				38660FE01CF299C800D6545C /* ICBaseViewController.h */,
+				38660FE11CF299C800D6545C /* ICBaseViewController.m */,
+				38660FE21CF299C800D6545C /* ICDetailViewController.h */,
+				38660FE31CF299C800D6545C /* ICDetailViewController.m */,
+				38660FE41CF299C800D6545C /* ICMainViewController.h */,
+				38660FE51CF299C800D6545C /* ICMainViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38660FBD1CF2993A00D6545C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				38660FBE1CF2993A00D6545C /* nav_return@2x.png */,
+				38660FBF1CF2993A00D6545C /* nav_return@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		38660FC01CF2993A00D6545C /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				38660FC41CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf */,
+				38660FC51CF299B100D6545C /* Constant.h */,
+				38660FC61CF299B100D6545C /* Header.h */,
+				38660FC71CF299B100D6545C /* ICFullScreenAnd3DNavigation.h */,
+				38660FC81CF299B100D6545C /* ICFullScreenAnd3DNavigation.m */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		38660FC11CF2993A00D6545C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38660FCC1CF299BA00D6545C /* ICBaseTableViewCell.h */,
+				38660FCD1CF299BA00D6545C /* ICBaseTableViewCell.m */,
+				38660FCE1CF299BA00D6545C /* ICLogoTableViewCell.h */,
+				38660FCF1CF299BA00D6545C /* ICLogoTableViewCell.m */,
+				38660FD01CF299BA00D6545C /* ICLogoTableViewCell.xib */,
+				38660FD11CF299BA00D6545C /* ICPlatformNameTableViewCell.h */,
+				38660FD21CF299BA00D6545C /* ICPlatformNameTableViewCell.m */,
+				38660FD31CF299BA00D6545C /* ICPlatformNameTableViewCell.xib */,
+				38660FD41CF299BA00D6545C /* ICPlatformPasswordTableViewCell.h */,
+				38660FD51CF299BA00D6545C /* ICPlatformPasswordTableViewCell.m */,
+				38660FD61CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38660FEA1CF29A3300D6545C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38660FEB1CF29A3300D6545C /* KeyModel.h */,
+				38660FEC1CF29A3300D6545C /* KeyModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,8 +357,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38660FD91CF299BA00D6545C /* ICLogoTableViewCell.xib in Resources */,
 				38660F991CF298ED00D6545C /* LaunchScreen.storyboard in Resources */,
+				38660FDD1CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib in Resources */,
+				38660FCA1CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf in Resources */,
 				38660F961CF298ED00D6545C /* Assets.xcassets in Resources */,
+				38660FC31CF2993A00D6545C /* nav_return@3x.png in Resources */,
+				38660FDB1CF299BA00D6545C /* ICPlatformNameTableViewCell.xib in Resources */,
+				38660FC21CF2993A00D6545C /* nav_return@2x.png in Resources */,
 				38660F941CF298ED00D6545C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,9 +390,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38660FD71CF299BA00D6545C /* ICBaseTableViewCell.m in Sources */,
+				38660FE91CF299C800D6545C /* ICMainViewController.m in Sources */,
+				38660FDC1CF299BA00D6545C /* ICPlatformPasswordTableViewCell.m in Sources */,
 				38660F911CF298ED00D6545C /* ViewController.m in Sources */,
+				38660FD81CF299BA00D6545C /* ICLogoTableViewCell.m in Sources */,
+				38660FDA1CF299BA00D6545C /* ICPlatformNameTableViewCell.m in Sources */,
+				38660FCB1CF299B100D6545C /* ICFullScreenAnd3DNavigation.m in Sources */,
+				38660FE81CF299C800D6545C /* ICDetailViewController.m in Sources */,
 				38660F8E1CF298ED00D6545C /* AppDelegate.m in Sources */,
+				38660FE71CF299C800D6545C /* ICBaseViewController.m in Sources */,
 				38660F8B1CF298ED00D6545C /* main.m in Sources */,
+				38660FED1CF29A3300D6545C /* KeyModel.m in Sources */,
+				38660FE61CF299C800D6545C /* ICAddPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPassword/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPassword/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taihe.MyPassword;
@@ -426,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPassword/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPassword/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taihe.MyPassword;

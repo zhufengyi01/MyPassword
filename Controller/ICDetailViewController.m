@@ -24,6 +24,20 @@
     
     // Do any additional setup after loading the view.
     [self createNavigation];
+    
+    
+    self.navigationController.view.backgroundColor = [UIColor redColor];
+    
+    self.tableView.backgroundColor = [UIColor blueColor];
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    NSLog(@"viewWillAppear");
 }
 
 

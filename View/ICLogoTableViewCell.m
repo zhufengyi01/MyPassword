@@ -26,8 +26,9 @@
     // Initialization code
     
     self.logoBtn.clipsToBounds = YES;
-    self.logoBtn.layer.borderColor = COLOR_TITLE_TWO.CGColor;
+    self.logoBtn.layer.borderColor = COLOR_TITLE_THREE.CGColor;
     self.logoBtn.layer.borderWidth = 0.5;
+    self.logoBtn.layer.cornerRadius = 6;
 }
 
 - (IBAction)logoBtnClickEvent:(UIButton *)sender {

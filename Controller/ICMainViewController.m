@@ -11,11 +11,11 @@
 #import "ICDetailViewController.h"
 #import "ICFullScreenAnd3DNavigation.h"
 #import "ICAddPasswordViewController.h"
+
 @interface ICMainViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     
 }
-@property(nonatomic,strong)NSMutableArray *dataSource;
 
 @end
 
@@ -28,14 +28,17 @@
     // Do any additional setup after loading the view.
     
     
-//    [self createNavigation];
+    [self createNavigation];
     
 
-//    self.dataSource =  [NSMutableArray array];
+    self.dataSource =  [NSMutableArray array];
     
-//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
-//    [self getUserPasswordDataSource];
+    [self getUserPasswordDataSource];
+    
+    self.tableView.backgroundColor = [UIColor yellowColor];
+    
     
 }
 
@@ -102,9 +105,9 @@
     model.platformName = @"qq";
     model.platformPassword = @"1234";
     keyList = @[model,model,model,model,model];
-    _dataSource  = [NSMutableArray arrayWithArray:keyList];
+    self.dataSource  = [NSMutableArray arrayWithArray:keyList];
     
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 
