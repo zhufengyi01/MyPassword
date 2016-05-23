@@ -88,12 +88,18 @@
     
     //  去掉返回按钮文字
     UIBarButtonItem *baritem =[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
+    /*
     UIOffset offset;
     offset.horizontal = -500;
     [baritem setBackButtonTitlePositionAdjustment:offset forBarMetrics:UIBarMetricsDefault];
-
+    */
     
-
+    
+    
+    NSDictionary *barAttributes = [NSDictionary dictionaryWithObjectsAndKeys:COLOR_TITLE_TWO,NSForegroundColorAttributeName,KBAR_FONT(14),NSFontAttributeName, nil];
+    [baritem setTitleTextAttributes: barAttributes forState:UIControlStateNormal];
+    
+    
     
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(paningGestureReceive:)];
     recognizer.delegate = self;

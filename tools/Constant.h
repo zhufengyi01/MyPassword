@@ -10,7 +10,9 @@
 #define Constant_h
 
 
-#define KMAIN_FONT(a) [UIFont fontWithName: @"Copperplate-Light" size:a]
+#define KMAIN_FONT(a) [UIFont fontWithName: @"IowanOldStyle-BoldItalic" size:a]
+
+#define KBAR_FONT(a)  [UIFont fontWithName: @"IowanOldStyle-BoldItalic" size:a]
 
 
 /**

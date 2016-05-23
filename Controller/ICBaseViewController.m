@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.dataSource =  [NSMutableArray array];
+
     self.view.backgroundColor =COLOR_MAINBACKGROUND;
     [self.tableView setTableFooterView:[UIView new]];
     

@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol ICLogoTableViewCellDelegate <NSObject>
+
+-(void)logoTableViewCellChooseImageButtonClick;
+
+
+@end
+
 @interface ICLogoTableViewCell : ICBaseTableViewCell
+
+
+@property (weak, nonatomic) IBOutlet UIButton *logoBtn;
+
+@property(nonatomic,weak)id <ICLogoTableViewCellDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
 @end

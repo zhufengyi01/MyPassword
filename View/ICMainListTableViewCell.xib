@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="KGk-i7-Jjw" customClass="ICMainListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="93"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="367" height="92.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_twitter" translatesAutoresizingMaskIntoConstraints="NO" id="0cw-Rp-k3u">
+                        <rect key="frame" x="10" y="10" width="65" height="72.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="fAe-P0-YEB"/>
+                            <constraint firstAttribute="height" constant="65" id="zK0-wK-xIB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zK0-wK-xIB"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GN-cE-mzM">
+                        <rect key="frame" x="85" y="36" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0cw-Rp-k3u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="7fI-Xx-Buy"/>
+                    <constraint firstItem="7GN-cE-mzM" firstAttribute="leading" secondItem="0cw-Rp-k3u" secondAttribute="trailing" constant="10" id="7uc-0A-oNq"/>
+                    <constraint firstItem="0cw-Rp-k3u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Fbe-UU-9Nt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0cw-Rp-k3u" secondAttribute="bottom" constant="10" id="LQs-y8-Yhw"/>
+                    <constraint firstItem="0cw-Rp-k3u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="af3-BW-iXT"/>
+                    <constraint firstAttribute="bottom" secondItem="0cw-Rp-k3u" secondAttribute="bottom" constant="10" id="nzj-3O-P0a"/>
+                    <constraint firstItem="7GN-cE-mzM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wwP-Tp-aJZ"/>
+                    <constraint firstItem="0cw-Rp-k3u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zJk-8Q-ZSz"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="7fI-Xx-Buy"/>
+                        <exclude reference="Fbe-UU-9Nt"/>
+                        <exclude reference="LQs-y8-Yhw"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="logoImageView" destination="0cw-Rp-k3u" id="TnY-ge-hlZ"/>
+                <outlet property="titleLbl" destination="7GN-cE-mzM" id="QaC-iR-Na9"/>
+            </connections>
+            <point key="canvasLocation" x="314.5" y="323.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_twitter" width="50" height="50"/>
+    </resources>
+</document>

@@ -11,8 +11,6 @@
 @interface ICLogoTableViewCell ()
 
 
-@property (weak, nonatomic) IBOutlet UIButton *logoBtn;
-
 @end
 
 
@@ -25,21 +23,26 @@
     [super awakeFromNib];
     // Initialization code
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+
     self.logoBtn.clipsToBounds = YES;
     self.logoBtn.layer.borderColor = COLOR_TITLE_THREE.CGColor;
     self.logoBtn.layer.borderWidth = 0.5;
     self.logoBtn.layer.cornerRadius = 6;
+
+    self.logoImageView.layer.cornerRadius = 6;
+    self.logoImageView.clipsToBounds = YES;
+
 }
+
 
 - (IBAction)logoBtnClickEvent:(UIButton *)sender {
     
+    if (self.delegate && [self.delegate respondsToSelector:@selector(logoTableViewCellChooseImageButtonClick)]) {
+        
+        [self.delegate logoTableViewCellChooseImageButtonClick];
+    }
     
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

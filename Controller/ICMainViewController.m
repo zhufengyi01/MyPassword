@@ -31,13 +31,7 @@
     [self createNavigation];
     
 
-    self.dataSource =  [NSMutableArray array];
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-    
-    [self getUserPasswordDataSource];
-    
-    self.tableView.backgroundColor = [UIColor yellowColor];
+    [self registerCellWithNibName:@"ICMainListTableViewCell"  reuseIdentifier:@"ICMainListTableViewCell"];
     
     
 }
@@ -48,7 +42,8 @@
     if ([self.navigationController isKindOfClass:[ICFullScreenAnd3DNavigation class]]) {
         [(ICFullScreenAnd3DNavigation *)self.navigationController setDragBackEnable:NO];
     }
- 
+    [self getUserPasswordDataSource];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -84,7 +79,6 @@
     backbtn.contentMode = UIViewContentModeLeft;
     self.navigationController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backbtn];
     
-
 }
 
 -(void)rightNavigationHandle
@@ -101,12 +95,8 @@
     
     NSArray *keyList = [[NSUserDefaults standardUserDefaults] arrayForKey:userPasswordKey];
     
-    KeyModel *model =  [KeyModel new];
-    model.platformName = @"qq";
-    model.platformPassword = @"1234";
-    keyList = @[model,model,model,model,model];
     self.dataSource  = [NSMutableArray arrayWithArray:keyList];
-    
+
     [self.tableView reloadData];
 }
 
@@ -120,17 +110,17 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.0f;
+    return 85.0f;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    ICMainListTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ICMainListTableViewCell"];
     KeyModel *model  = [self.dataSource objectAtIndex:indexPath.row];
-    cell.textLabel.text = [model.platformName stringByAppendingString:@"哈哈"];
+//    cell.textLabel.text = [model.platformName stringByAppendingString:@"哈哈"];
     cell.textLabel.font = KMAIN_FONT(14);
-    cell.imageView.backgroundColor = [UIColor redColor];
+//    cell.imageView.backgroundColor = [UIColor redColor];
     return cell;
     
 }

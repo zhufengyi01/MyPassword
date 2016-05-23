@@ -24,7 +24,7 @@
 /**
  *  logo 图片名
  */
-@property(nonatomic,strong)NSString *logoImageName;
+@property(nonatomic,strong)UIImage *logoImage;
 
 
 @end
