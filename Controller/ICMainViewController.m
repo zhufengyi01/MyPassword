@@ -92,8 +92,9 @@
 #pragma mark 数据获取
 -(void)getUserPasswordDataSource
 {
-    
-    NSArray *keyList = [[NSUserDefaults standardUserDefaults] arrayForKey:userPasswordKey];
+    NSString *keyPath = [userPasswordKey stringByAppendingPathComponent:@"userKey"];
+
+    NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
     
     self.dataSource  = [NSMutableArray arrayWithArray:keyList];
 
@@ -118,9 +119,7 @@
     
     ICMainListTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"ICMainListTableViewCell"];
     KeyModel *model  = [self.dataSource objectAtIndex:indexPath.row];
-//    cell.textLabel.text = [model.platformName stringByAppendingString:@"哈哈"];
-    cell.textLabel.font = KMAIN_FONT(14);
-//    cell.imageView.backgroundColor = [UIColor redColor];
+    cell.model = model;
     return cell;
     
 }
@@ -132,6 +131,7 @@
     
     ICDetailViewController *vc=  [ICDetailViewController new];
     vc.model = model;
+    vc.index = indexPath.row;
     [self.navigationController pushViewController:vc  animated:YES];
 
 }

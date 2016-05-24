@@ -22,12 +22,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.logoImageView.layer.cornerRadius = 4;
+    self.logoImageView.clipsToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+-(void)setModel:(KeyModel *)model
+{
+    _model = model;
+    
+    self.logoImageView.image = model.logoImage;
+    self.titleLbl.text = model.platformName;
+    self.titleLbl.font = KMAIN_FONT(14);
+
 }
-
 @end

@@ -10,4 +10,6 @@
 
 @interface ICMainListTableViewCell : ICBaseTableViewCell
 
+@property(nonatomic,strong) KeyModel *model;
+
 @end

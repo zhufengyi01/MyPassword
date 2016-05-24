@@ -104,21 +104,22 @@
         return;
     }
 
-    NSArray *keyList = [[NSUserDefaults standardUserDefaults] arrayForKey:userPasswordKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:userPasswordKey];
+    NSString *keyPath = [userPasswordKey stringByAppendingPathComponent:@"userKey"];
+    NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
     
     KeyModel *model  =[KeyModel new];
     if (self.logoCell.logoImageView.image) {
-        model.logoImage = self.logoCell.logoImageView.image;
+        model.logoImage =  self.logoCell.logoImageView.image;
     }
     model.platformName  = self.platformNameCell.inputTextField.text;
     model.platformPassword  = self.platformPassCell.inputTextField.text;
     
     NSMutableArray *tempArr  = [NSMutableArray arrayWithArray:keyList];
     [tempArr addObject:model];
-    [[NSUserDefaults standardUserDefaults] setObject:tempArr forKey:userPasswordKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+        
     
+    [NSKeyedArchiver archiveRootObject:tempArr toFile:keyPath];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

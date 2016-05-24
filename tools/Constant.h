@@ -49,9 +49,9 @@
 //二级标题颜色
 #define COLOR_TITLE_TWO RGB(80, 80, 80)
 
-
 #define COLOR_TITLE_THREE RGB(160, 160, 160)
 
+#define COLOR_RED RGB(242, 90, 43)
 
 
 #endif /* Constant_h */

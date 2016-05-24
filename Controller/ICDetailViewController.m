@@ -8,7 +8,7 @@
 
 #import "ICDetailViewController.h"
 
-@interface ICDetailViewController ()<ICLogoTableViewCellDelegate,UIImagePickerControllerDelegate>
+@interface ICDetailViewController ()<ICLogoTableViewCellDelegate,UIImagePickerControllerDelegate,ICButtonTableViewCellDelegate>
 {
    UIImagePickerController *imagePicker;
     
@@ -31,6 +31,8 @@
 
 @property(nonatomic,strong) ICInputTableViewCell *platformPassCell;
 
+@property(nonatomic,strong)ICButtonTableViewCell *comformCell;
+
 
 @end
 
@@ -41,12 +43,14 @@
     
     // Do any additional setup after loading the view.
     [self createNavigation];
+    logoImage = self.model.logoImage;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    
     
     NSLog(@"viewWillAppear");
 }
@@ -58,6 +62,7 @@
         
         [self registerCellWithNibName:NSStringFromClass([ICLogoTableViewCell class]) reuseIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
         _logoCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
+        _logoCell.logoImageView.image = self.model.logoImage;
         _logoCell.delegate = self;
         _logoCell.logoBtn.enabled = NO;
     }
@@ -71,6 +76,7 @@
         [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewNameCell"];
         
         _platformNameCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewNameCell"];
+        _platformNameCell.inputTextField.text = self.model.platformName;
         _platformNameCell.inputTextField.enabled = NO;
         _platformNameCell.inputTextField.placeholder = @"please input platform name";
 
@@ -84,6 +90,7 @@
         
         [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewPassCell"];
         _platformPassCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewPassCell"];
+        _platformPassCell.inputTextField.text = self.model.platformPassword;
         _platformPassCell.inputTextField.enabled = NO;
         _platformPassCell.inputTextField.placeholder = @"please input platform password";
 
@@ -91,6 +98,19 @@
     return _platformPassCell;
 }
 
+
+
+-(ICButtonTableViewCell *)comformCell
+{
+    if (!_comformCell) {
+        
+        [self registerCellWithNibName:NSStringFromClass([ICButtonTableViewCell class]) reuseIdentifier:@"ICButtonTableViewCell"];
+        _comformCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICButtonTableViewCell"];
+        _comformCell.delegate = self;
+        
+    }
+    return _comformCell;
+}
 
 #pragma mark Privite Method
 -(void)createNavigation
@@ -121,7 +141,7 @@
         [self edit];
         self.isEditing = YES;
     }
- 
+    [self.tableView reloadData];
 }
 #pragma mark 编辑状态
 -(void)edit
@@ -148,10 +168,24 @@
     //存储用户信息
     KeyModel *model = [KeyModel new];
     model.platformName = self.platformNameCell.inputTextField.text;
-    model.logoImage = self.logoCell.logoImageView.image;
+    model.logoImage = logoImage;
     model.platformPassword = self.platformPassCell.inputTextField.text;
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    NSString *keyPath = [userPasswordKey stringByAppendingPathComponent:@"userKey"];
+    NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
+    
+    NSMutableArray *tempArr = [NSMutableArray arrayWithArray:keyList];
+
+    
+    [tempArr replaceObjectAtIndex:self.index withObject:model];
+    
+    BOOL y = [NSKeyedArchiver archiveRootObject:tempArr toFile:keyPath];
+
+    if (y) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
     
 }
 
@@ -159,12 +193,18 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.editing) {
+        return 4;
+    }
     return 3;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
         return 200;
+    } else if(indexPath.row==3)
+    {
+        return 120;
     }
     return 60.0f;
 }
@@ -181,6 +221,9 @@
     }else if(indexPath.row==2)
     {
         return self.platformPassCell;
+    }else if(indexPath.row==3)
+    {
+        return self.comformCell;
     }
     return [UITableViewCell new];
 }
@@ -211,6 +254,33 @@
     
 }
 
-
+#pragma mark ICButtonTableViewCellDelegate
+#pragma mark 点击删除
+-(void)buttonTableViewCellClick;
+{
+    
+     [WCAlertView showAlertWithTitle:@"确认删除" message:nil customizationBlock:^(WCAlertView *alertView) {
+         
+     } completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+         if (buttonIndex==1) {
+             //删除
+             NSString *keyPath = [userPasswordKey stringByAppendingPathComponent:@"userKey"];
+             NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
+             
+             NSMutableArray *tempArr = [NSMutableArray arrayWithArray:keyList];
+             [tempArr removeObject:self.model];
+             
+            BOOL y = [NSKeyedArchiver archiveRootObject:tempArr toFile:keyPath];
+             if (y) {
+                 
+                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                     
+                     [self.navigationController popViewControllerAnimated:YES];
+                 });
+             }
+         }
+         
+     } cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+}
 
 @end

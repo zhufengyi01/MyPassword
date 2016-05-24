@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#define userPasswordKey @"userPasswordKey"
+//#define userPasswordKey @"userPasswordKey"
+#define userPasswordKey  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 @interface KeyModel : NSObject
 

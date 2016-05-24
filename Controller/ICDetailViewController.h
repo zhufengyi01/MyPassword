@@ -12,4 +12,6 @@
 
 @property(nonatomic,strong) KeyModel *model;
 
+@property(nonatomic,assign) NSInteger index;
+
 @end

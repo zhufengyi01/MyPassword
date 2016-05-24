@@ -1,2 +1,4 @@
 
 pod 'SVProgressHUD'
+
+pod 'MJExtension'

@@ -10,4 +10,6 @@
 
 @implementation KeyModel
 
+MJExtensionCodingImplementation
+
 @end

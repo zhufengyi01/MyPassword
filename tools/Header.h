@@ -24,8 +24,14 @@
 #import "ICMainListTableViewCell.h"
 #import "ICPlatformPasswordTableViewCell.h"
 #import "ICInputTableViewCell.h"
+#import "ICButtonTableViewCell.h"
 #import "KeyModel.h"
 
 
 #import "SVProgressHUD.h"
+#import "MJExtension.h"
+
+#import "UIImage+Extension.h"
+#import "WCAlertView.h"
+
 #endif /* Header_h */
