@@ -42,6 +42,7 @@
         [self registerCellWithNibName:NSStringFromClass([ICLogoTableViewCell class]) reuseIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
         _logoCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
         _logoCell.delegate = self;
+        _logoCell.logoImageView.image = [UIImage imageNamed:@"addlogo"];
     }
     return _logoCell;
 }
@@ -54,6 +55,7 @@
 
         _platformNameCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewNameCell"];
         _platformNameCell.inputTextField.placeholder = @"please input platform name";
+        _platformNameCell.userCopyBtn.hidden = YES;
     }
     return _platformNameCell;
 }
@@ -65,6 +67,7 @@
         [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewPassCell"];
         _platformPassCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewPassCell"];
         _platformPassCell.inputTextField.placeholder = @"please input platform password";
+        _platformPassCell.userCopyBtn.hidden = YES;
     }
     return _platformPassCell;
 }
@@ -95,12 +98,12 @@
 -(void)rightNavigationHandle
 {
     if (self.platformNameCell.inputTextField.text.length==0) {
-        [SVProgressHUD showErrorWithStatus:@"please input platform name"];
+        [SVProgressHUD showErrorWithStatus:@"please input platform name" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
     if (self.platformPassCell.inputTextField.text.length==0) {
         
-        [SVProgressHUD showErrorWithStatus:@"please input platform password"];
+        [SVProgressHUD showErrorWithStatus:@"please input platform password" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
 

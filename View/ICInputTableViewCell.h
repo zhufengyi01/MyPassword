@@ -19,5 +19,10 @@ typedef NS_ENUM(NSInteger,ICInputTableViewCellType) {
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+/**
+ *  复制
+ */
+@property (weak, nonatomic) IBOutlet UIButton *userCopyBtn;
+
 
 @end

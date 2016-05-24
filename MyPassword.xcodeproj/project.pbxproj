@@ -11,6 +11,8 @@
 		385D98A61CF3F4A000DF48B2 /* ICButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385D98A41CF3F4A000DF48B2 /* ICButtonTableViewCell.xib */; };
 		385D98A91CF3F7CA00DF48B2 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 385D98A81CF3F7CA00DF48B2 /* UIImage+Extension.m */; };
 		385D98AC1CF3FA1D00DF48B2 /* WCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385D98AB1CF3FA1D00DF48B2 /* WCAlertView.m */; };
+		385D98AF1CF421A000DF48B2 /* aadlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 385D98AD1CF421A000DF48B2 /* aadlogo@3x.png */; };
+		385D98B01CF421A000DF48B2 /* addlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 385D98AE1CF421A000DF48B2 /* addlogo@2x.png */; };
 		38660F8B1CF298ED00D6545C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660F8A1CF298ED00D6545C /* main.m */; };
 		38660F8E1CF298ED00D6545C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660F8D1CF298ED00D6545C /* AppDelegate.m */; };
 		38660F911CF298ED00D6545C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660F901CF298ED00D6545C /* ViewController.m */; };
@@ -68,6 +70,8 @@
 		385D98A81CF3F7CA00DF48B2 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		385D98AA1CF3FA1D00DF48B2 /* WCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAlertView.h; sourceTree = "<group>"; };
 		385D98AB1CF3FA1D00DF48B2 /* WCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAlertView.m; sourceTree = "<group>"; };
+		385D98AD1CF421A000DF48B2 /* aadlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aadlogo@3x.png"; sourceTree = "<group>"; };
+		385D98AE1CF421A000DF48B2 /* addlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addlogo@2x.png"; sourceTree = "<group>"; };
 		38660F861CF298ED00D6545C /* MyPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38660F8A1CF298ED00D6545C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38660F8C1CF298ED00D6545C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 		38660FBD1CF2993A00D6545C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				385D98AD1CF421A000DF48B2 /* aadlogo@3x.png */,
+				385D98AE1CF421A000DF48B2 /* addlogo@2x.png */,
 				38660FBE1CF2993A00D6545C /* nav_return@2x.png */,
 				38660FBF1CF2993A00D6545C /* nav_return@3x.png */,
 			);
@@ -423,10 +429,12 @@
 				38660FDD1CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib in Resources */,
 				38660FCA1CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf in Resources */,
 				38660F961CF298ED00D6545C /* Assets.xcassets in Resources */,
+				385D98B01CF421A000DF48B2 /* addlogo@2x.png in Resources */,
 				38660FC31CF2993A00D6545C /* nav_return@3x.png in Resources */,
 				38660FDB1CF299BA00D6545C /* ICPlatformNameTableViewCell.xib in Resources */,
 				38660FC21CF2993A00D6545C /* nav_return@2x.png in Resources */,
 				38660FF61CF2DE9400D6545C /* ICMainListTableViewCell.xib in Resources */,
+				385D98AF1CF421A000DF48B2 /* aadlogo@3x.png in Resources */,
 				385D98A61CF3F4A000DF48B2 /* ICButtonTableViewCell.xib in Resources */,
 				38660FFB1CF2E2A900D6545C /* ICInputTableViewCell.xib in Resources */,
 				38660F941CF298ED00D6545C /* Main.storyboard in Resources */,

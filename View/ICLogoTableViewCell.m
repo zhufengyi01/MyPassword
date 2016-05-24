@@ -25,11 +25,6 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    self.logoBtn.clipsToBounds = YES;
-    self.logoBtn.layer.borderColor = COLOR_TITLE_THREE.CGColor;
-    self.logoBtn.layer.borderWidth = 0.5;
-    self.logoBtn.layer.cornerRadius = 6;
-
     self.logoImageView.layer.cornerRadius = 6;
     self.logoImageView.clipsToBounds = YES;
 

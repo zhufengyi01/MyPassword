@@ -79,6 +79,7 @@
         _platformNameCell.inputTextField.text = self.model.platformName;
         _platformNameCell.inputTextField.enabled = NO;
         _platformNameCell.inputTextField.placeholder = @"please input platform name";
+        [_platformNameCell.userCopyBtn addTarget:self action:@selector(copyUserName) forControlEvents:UIControlEventTouchUpInside];
 
     }
     return _platformNameCell;
@@ -93,6 +94,7 @@
         _platformPassCell.inputTextField.text = self.model.platformPassword;
         _platformPassCell.inputTextField.enabled = NO;
         _platformPassCell.inputTextField.placeholder = @"please input platform password";
+        [_platformPassCell.userCopyBtn addTarget:self action:@selector(copyPassword) forControlEvents:UIControlEventTouchUpInside];
 
     }
     return _platformPassCell;
@@ -156,12 +158,12 @@
 -(void)done
 {
     if (self.platformNameCell.inputTextField.text.length==0) {
-        [SVProgressHUD showErrorWithStatus:@"please input platform name"];
+        [SVProgressHUD showErrorWithStatus:@"please input platform name" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
     if (self.platformPassCell.inputTextField.text.length==0) {
         
-        [SVProgressHUD showErrorWithStatus:@"please input platform password"];
+        [SVProgressHUD showErrorWithStatus:@"please input platform password" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
 
@@ -189,6 +191,33 @@
     
 }
 
+#pragma mark 复制功能
+-(void)copyUserName
+{
+    if (self.platformNameCell.inputTextField.text.length==0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"copy fail" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    UIPasteboard *paste = [UIPasteboard generalPasteboard];
+    paste.string = self.platformNameCell.inputTextField.text;
+    [SVProgressHUD showSuccessWithStatus:@"copy success" maskType:SVProgressHUDMaskTypeBlack];
+   
+}
+
+-(void)copyPassword
+{
+ 
+    if (self.platformPassCell.inputTextField.text.length==0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"copy fail" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    UIPasteboard *paste = [UIPasteboard generalPasteboard];
+    paste.string = self.platformPassCell.inputTextField.text;
+    [SVProgressHUD showSuccessWithStatus:@"copy success" maskType:SVProgressHUDMaskTypeBlack];
+
+}
 #pragma mark Delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
