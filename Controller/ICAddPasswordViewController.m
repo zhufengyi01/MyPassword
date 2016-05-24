@@ -17,6 +17,8 @@
 
 @property(nonatomic,strong) ICInputTableViewCell *platformNameCell;
 
+@property(nonatomic,strong) ICInputTableViewCell *userNameCell;
+
 @property(nonatomic,strong) ICInputTableViewCell *platformPassCell;
 
 
@@ -60,13 +62,26 @@
     return _platformNameCell;
 }
 
+-(ICInputTableViewCell *)userNameCell{
+    if (!_userNameCell) {
+        
+        [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewUserNameCell"];
+        
+        _userNameCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewUserNameCell"];
+        _userNameCell.inputTextField.placeholder = @"please input userName";
+        _userNameCell.userCopyBtn.hidden = YES;
+
+    }
+    return _userNameCell;
+}
+
 -(ICInputTableViewCell *)platformPassCell
 {
     if (!_platformPassCell) {
         
         [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewPassCell"];
         _platformPassCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewPassCell"];
-        _platformPassCell.inputTextField.placeholder = @"please input platform password";
+        _platformPassCell.inputTextField.placeholder = @"please input user password";
         _platformPassCell.userCopyBtn.hidden = YES;
     }
     return _platformPassCell;
@@ -101,9 +116,15 @@
         [SVProgressHUD showErrorWithStatus:@"please input platform name" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
+    if (self.userNameCell.inputTextField.text.length==0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"please input user name" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+
+    }
     if (self.platformPassCell.inputTextField.text.length==0) {
         
-        [SVProgressHUD showErrorWithStatus:@"please input platform password" maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showErrorWithStatus:@"please input user password" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
 
@@ -115,6 +136,7 @@
         model.logoImage =  self.logoCell.logoImageView.image;
     }
     model.platformName  = self.platformNameCell.inputTextField.text;
+    model.userName =  self.userNameCell.inputTextField.text;
     model.platformPassword  = self.platformPassCell.inputTextField.text;
     
     NSMutableArray *tempArr  = [NSMutableArray arrayWithArray:keyList];
@@ -131,7 +153,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -150,7 +172,12 @@
     }else if(indexPath.row==1)
     {
         return self.platformNameCell;
+        
     }else if(indexPath.row==2)
+    {
+        return self.userNameCell;
+    }
+    else if(indexPath.row==3)
     {
         return self.platformPassCell;
     }

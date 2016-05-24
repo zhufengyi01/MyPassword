@@ -24,23 +24,6 @@
     self.window.rootViewController  =na;
 
     
-    /*NSArray *familys = [UIFont familyNames];
-    
-    for (int i = 0; i < [familys count]; i++)
-    {
-        NSString *family = [familys objectAtIndex:i];
-        NSLog(@"=====Fontfamily:%@", family);
-     
-     
-        NSArray *fonts = [UIFont fontNamesForFamilyName:family];
-        for(int j = 0; j < [fonts count]; j++)
-        {
-            NSLog(@"***FontName:%@", [fonts objectAtIndex:i]);
-        }
-    }
-    */
-    
-    
     return YES;
 }
 
@@ -52,6 +35,11 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    [[NSUserDefaults standardUserDefaults] setDouble:timeInterval forKey:@"applicationDidEnterBackgroundTime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -60,6 +48,18 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    
+    double currentTimeInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:@"applicationDidEnterBackgroundTime"];
+    
+    // 大于30分钟超时
+    if (timeInterval - currentTimeInterval > 30 * 60  ) {
+        
+        // 重新加载手势密码
+        [self.window.rootViewController presentViewController:[ICfingerPasswordViewController new ] animated:YES completion:nil];
+    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

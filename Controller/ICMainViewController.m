@@ -27,12 +27,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    if ([[TouchIDManager sharedManager] canUseTouchId]) {
+        /*
+        [[TouchIDManager sharedManager] touchIDWithlocalizedFallbackTitle:@"" localizedReason:@"Please enter a fingerprint" success:^(BOOL success, NSError *error) {
+            
+            
+        }];*/
+        
+        [self presentViewController:[ICfingerPasswordViewController new] animated:YES completion:nil];
+    }
+    
     
     [self createNavigation];
     
-
     [self registerCellWithNibName:@"ICMainListTableViewCell"  reuseIdentifier:@"ICMainListTableViewCell"];
-    
     
 }
 
@@ -136,7 +144,43 @@
 
 }
 
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
 
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Delete";
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle ==UITableViewCellEditingStyleDelete ) {
+        
+        [WCAlertView showAlertWithTitle:@"Do you really want to delete it" message:nil customizationBlock:^(WCAlertView *alertView) {
+            
+        } completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+            
+            if (buttonIndex==1) {
+                
+                [self.dataSource removeObjectAtIndex:indexPath.row];
+                
+                NSString *keyPath = [userPasswordKey stringByAppendingPathComponent:@"userKey"];
+                [NSKeyedArchiver archiveRootObject:self.dataSource toFile:keyPath];
+                
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            }
+        } cancelButtonTitle:@"cancle" otherButtonTitles:@"yes", nil];
+
+    }
+}
+     
 #pragma mark Notification
 
 

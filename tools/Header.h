@@ -26,6 +26,7 @@
 #import "ICInputTableViewCell.h"
 #import "ICButtonTableViewCell.h"
 #import "KeyModel.h"
+#import "ICfingerPasswordViewController.h"
 
 
 #import "SVProgressHUD.h"
@@ -33,5 +34,6 @@
 
 #import "UIImage+Extension.h"
 #import "WCAlertView.h"
+#import "TouchIDManager.h"
 
 #endif /* Header_h */

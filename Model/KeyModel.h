@@ -17,6 +17,8 @@
  */
 @property(nonatomic,strong)NSString *platformName;
 
+
+@property(nonatomic,strong)NSString *userName;
 /**
  *  平台密码
  */

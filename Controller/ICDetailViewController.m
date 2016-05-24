@@ -29,6 +29,8 @@
 
 @property(nonatomic,strong) ICInputTableViewCell *platformNameCell;
 
+@property(nonatomic,strong) ICInputTableViewCell *userNameCell;
+
 @property(nonatomic,strong) ICInputTableViewCell *platformPassCell;
 
 @property(nonatomic,strong)ICButtonTableViewCell *comformCell;
@@ -79,10 +81,25 @@
         _platformNameCell.inputTextField.text = self.model.platformName;
         _platformNameCell.inputTextField.enabled = NO;
         _platformNameCell.inputTextField.placeholder = @"please input platform name";
-        [_platformNameCell.userCopyBtn addTarget:self action:@selector(copyUserName) forControlEvents:UIControlEventTouchUpInside];
+        [_platformNameCell.userCopyBtn addTarget:self action:@selector(copyPlatformName) forControlEvents:UIControlEventTouchUpInside];
 
     }
     return _platformNameCell;
+}
+
+
+-(ICInputTableViewCell *)userNameCell{
+    if (!_userNameCell) {
+        
+        [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewUserNameCell"];
+        _userNameCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewUserNameCell"];
+        _userNameCell.inputTextField.text = self.model.userName;
+        _userNameCell.inputTextField.enabled = NO;
+        _userNameCell.inputTextField.placeholder = @"please input userName";
+        [_userNameCell.userCopyBtn addTarget:self action:@selector(copyUserName) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _userNameCell;
 }
 
 -(ICInputTableViewCell *)platformPassCell
@@ -144,14 +161,22 @@
         self.isEditing = YES;
     }
     [self.tableView reloadData];
+
 }
 #pragma mark 编辑状态
 -(void)edit
 {
     _logoCell.logoBtn.enabled = YES;
+    _userNameCell.inputTextField.enabled = YES;
     _platformPassCell.inputTextField.enabled = YES;
     _platformNameCell.inputTextField.enabled = YES;
-    [self.platformNameCell.inputTextField becomeFirstResponder];    
+    
+    //隐藏copy
+    _userNameCell.userCopyBtn.hidden = YES;
+    _platformNameCell.userCopyBtn.hidden = YES;
+    _platformPassCell.userCopyBtn.hidden = YES;
+    [self.platformNameCell.inputTextField becomeFirstResponder];
+
    
 }
 #pragma mark 完成状态
@@ -161,9 +186,16 @@
         [SVProgressHUD showErrorWithStatus:@"please input platform name" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
+    if (self.userNameCell.inputTextField.text.length==0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"please input user name" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+        
+    }
+
     if (self.platformPassCell.inputTextField.text.length==0) {
         
-        [SVProgressHUD showErrorWithStatus:@"please input platform password" maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showErrorWithStatus:@"please input user password" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
 
@@ -171,6 +203,7 @@
     KeyModel *model = [KeyModel new];
     model.platformName = self.platformNameCell.inputTextField.text;
     model.logoImage = logoImage;
+    model.userName =  self.userNameCell.inputTextField.text;
     model.platformPassword = self.platformPassCell.inputTextField.text;
     
     
@@ -192,7 +225,7 @@
 }
 
 #pragma mark 复制功能
--(void)copyUserName
+-(void)copyPlatformName
 {
     if (self.platformNameCell.inputTextField.text.length==0) {
         
@@ -203,6 +236,19 @@
     paste.string = self.platformNameCell.inputTextField.text;
     [SVProgressHUD showSuccessWithStatus:@"copy success" maskType:SVProgressHUDMaskTypeBlack];
    
+}
+
+-(void)copyUserName
+{
+    if (self.userNameCell.inputTextField.text.length==0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"copy fail" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    UIPasteboard *paste = [UIPasteboard generalPasteboard];
+    paste.string = self.userNameCell.inputTextField.text;
+    [SVProgressHUD showSuccessWithStatus:@"copy success" maskType:SVProgressHUDMaskTypeBlack];
+    
 }
 
 -(void)copyPassword
@@ -223,15 +269,15 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.editing) {
-        return 4;
+        return 5;
     }
-    return 3;
+    return 4;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
         return 200;
-    } else if(indexPath.row==3)
+    } else if(indexPath.row==4)
     {
         return 120;
     }
@@ -244,13 +290,20 @@
     if (indexPath.row==0) {
         
         return self.logoCell;
+        
     }else if(indexPath.row==1)
     {
         return self.platformNameCell;
+        
     }else if(indexPath.row==2)
     {
+        return self.userNameCell;
+    }
+     else if(indexPath.row==3)
+    {
         return self.platformPassCell;
-    }else if(indexPath.row==3)
+        
+    }else if(indexPath.row==4)
     {
         return self.comformCell;
     }
@@ -288,7 +341,7 @@
 -(void)buttonTableViewCellClick;
 {
     
-     [WCAlertView showAlertWithTitle:@"确认删除" message:nil customizationBlock:^(WCAlertView *alertView) {
+    [WCAlertView showAlertWithTitle:@"Do you really want to delete it" message:nil customizationBlock:^(WCAlertView *alertView) {
          
      } completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
          if (buttonIndex==1) {
@@ -297,9 +350,11 @@
              NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
              
              NSMutableArray *tempArr = [NSMutableArray arrayWithArray:keyList];
-             [tempArr removeObject:self.model];
+             [tempArr removeObjectAtIndex:self.index];
              
             BOOL y = [NSKeyedArchiver archiveRootObject:tempArr toFile:keyPath];
+             
+             [SVProgressHUD showSuccessWithStatus:@"delete success" maskType:SVProgressHUDMaskTypeBlack];
              if (y) {
                  
                  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -309,7 +364,7 @@
              }
          }
          
-     } cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+     } cancelButtonTitle:@"cancle" otherButtonTitles:@"yes", nil];
 }
 
 @end
