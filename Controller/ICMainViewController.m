@@ -28,11 +28,6 @@
     // Do any additional setup after loading the view.
     
     if ([[TouchIDManager sharedManager] canUseTouchId]) {
-        /*
-        [[TouchIDManager sharedManager] touchIDWithlocalizedFallbackTitle:@"" localizedReason:@"Please enter a fingerprint" success:^(BOOL success, NSError *error) {
-            
-            
-        }];*/
         
         [self presentViewController:[ICfingerPasswordViewController new] animated:YES completion:nil];
     }

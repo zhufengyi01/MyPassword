@@ -97,6 +97,8 @@
         _userNameCell.inputTextField.enabled = NO;
         _userNameCell.inputTextField.placeholder = @"please input userName";
         [_userNameCell.userCopyBtn addTarget:self action:@selector(copyUserName) forControlEvents:UIControlEventTouchUpInside];
+        _userNameCell.logoImageView.image = [UIImage imageNamed:@"trAccount"];
+
         
     }
     return _userNameCell;
@@ -112,6 +114,7 @@
         _platformPassCell.inputTextField.enabled = NO;
         _platformPassCell.inputTextField.placeholder = @"please input platform password";
         [_platformPassCell.userCopyBtn addTarget:self action:@selector(copyPassword) forControlEvents:UIControlEventTouchUpInside];
+        _platformPassCell.logoImageView.image = [UIImage imageNamed:@"trPassword"];
 
     }
     return _platformPassCell;

@@ -70,6 +70,7 @@
         _userNameCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewUserNameCell"];
         _userNameCell.inputTextField.placeholder = @"please input userName";
         _userNameCell.userCopyBtn.hidden = YES;
+        _userNameCell.logoImageView.image = [UIImage imageNamed:@"trAccount"];
 
     }
     return _userNameCell;
@@ -83,6 +84,7 @@
         _platformPassCell = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewPassCell"];
         _platformPassCell.inputTextField.placeholder = @"please input user password";
         _platformPassCell.userCopyBtn.hidden = YES;
+        _platformPassCell.logoImageView.image = [UIImage imageNamed:@"trPassword"];
     }
     return _platformPassCell;
 }

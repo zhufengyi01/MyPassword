@@ -46,6 +46,10 @@
 		38660FF61CF2DE9400D6545C /* ICMainListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38660FF41CF2DE9400D6545C /* ICMainListTableViewCell.xib */; };
 		38660FFA1CF2E2A900D6545C /* ICInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38660FF81CF2E2A900D6545C /* ICInputTableViewCell.m */; };
 		38660FFB1CF2E2A900D6545C /* ICInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38660FF91CF2E2A900D6545C /* ICInputTableViewCell.xib */; };
+		38D8F8C71CF5948F009E94FD /* trAccount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D8F8C31CF5948F009E94FD /* trAccount@2x.png */; };
+		38D8F8C81CF5948F009E94FD /* trAccount@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D8F8C41CF5948F009E94FD /* trAccount@3x.png */; };
+		38D8F8C91CF5948F009E94FD /* trPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D8F8C51CF5948F009E94FD /* trPassword@2x.png */; };
+		38D8F8CA1CF5948F009E94FD /* trPassword@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D8F8C61CF5948F009E94FD /* trPassword@3x.png */; };
 		E5AE6AF94FAB5F5F590A37F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C35BCF921BA7A58F3B591D3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +139,10 @@
 		38660FF71CF2E2A900D6545C /* ICInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICInputTableViewCell.h; sourceTree = "<group>"; };
 		38660FF81CF2E2A900D6545C /* ICInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICInputTableViewCell.m; sourceTree = "<group>"; };
 		38660FF91CF2E2A900D6545C /* ICInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ICInputTableViewCell.xib; sourceTree = "<group>"; };
+		38D8F8C31CF5948F009E94FD /* trAccount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trAccount@2x.png"; sourceTree = "<group>"; };
+		38D8F8C41CF5948F009E94FD /* trAccount@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trAccount@3x.png"; sourceTree = "<group>"; };
+		38D8F8C51CF5948F009E94FD /* trPassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trPassword@2x.png"; sourceTree = "<group>"; };
+		38D8F8C61CF5948F009E94FD /* trPassword@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trPassword@3x.png"; sourceTree = "<group>"; };
 		5C35BCF921BA7A58F3B591D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9525BC29268FF3A9A7281C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +264,10 @@
 		38660FBD1CF2993A00D6545C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				38D8F8C31CF5948F009E94FD /* trAccount@2x.png */,
+				38D8F8C41CF5948F009E94FD /* trAccount@3x.png */,
+				38D8F8C51CF5948F009E94FD /* trPassword@2x.png */,
+				38D8F8C61CF5948F009E94FD /* trPassword@3x.png */,
 				385D98B61CF4374F00DF48B2 /* trFingerprint_2@2x.png */,
 				385D98B71CF4374F00DF48B2 /* trFingerprint_2@3x.png */,
 				385D98AD1CF421A000DF48B2 /* aadlogo@3x.png */,
@@ -443,12 +455,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D8F8C81CF5948F009E94FD /* trAccount@3x.png in Resources */,
 				38660FD91CF299BA00D6545C /* ICLogoTableViewCell.xib in Resources */,
 				38660F991CF298ED00D6545C /* LaunchScreen.storyboard in Resources */,
 				385D98B81CF4374F00DF48B2 /* trFingerprint_2@2x.png in Resources */,
+				38D8F8CA1CF5948F009E94FD /* trPassword@3x.png in Resources */,
 				38660FDD1CF299BA00D6545C /* ICPlatformPasswordTableViewCell.xib in Resources */,
 				38660FCA1CF299B100D6545C /* 方正兰亭纤黑_GBK.ttf in Resources */,
 				38660F961CF298ED00D6545C /* Assets.xcassets in Resources */,
+				38D8F8C71CF5948F009E94FD /* trAccount@2x.png in Resources */,
 				385D98B91CF4374F00DF48B2 /* trFingerprint_2@3x.png in Resources */,
 				385D98B01CF421A000DF48B2 /* addlogo@2x.png in Resources */,
 				385D98B51CF436EC00DF48B2 /* ICfingerPasswordViewController.xib in Resources */,
@@ -456,6 +471,7 @@
 				38660FDB1CF299BA00D6545C /* ICPlatformNameTableViewCell.xib in Resources */,
 				38660FC21CF2993A00D6545C /* nav_return@2x.png in Resources */,
 				38660FF61CF2DE9400D6545C /* ICMainListTableViewCell.xib in Resources */,
+				38D8F8C91CF5948F009E94FD /* trPassword@2x.png in Resources */,
 				385D98AF1CF421A000DF48B2 /* aadlogo@3x.png in Resources */,
 				385D98A61CF3F4A000DF48B2 /* ICButtonTableViewCell.xib in Resources */,
 				38660FFB1CF2E2A900D6545C /* ICInputTableViewCell.xib in Resources */,
@@ -697,6 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPassword/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPassword/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taihe.MyPassword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -710,6 +727,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPassword/PrefixHeader.pch";
 				INFOPLIST_FILE = MyPassword/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taihe.MyPassword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
