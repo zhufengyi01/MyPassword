@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,38 +12,27 @@
             <rect key="frame" x="0.0" y="0.0" width="404" height="167"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="404" height="166.5"/>
+                <frame key="frameInset" width="404" height="166"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-Gu-a1b">
-                        <rect key="frame" x="162" y="43" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="Tug-zL-mzW"/>
                             <constraint firstAttribute="width" constant="80" id="fgV-8A-WLC"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
                             <action selector="logoBtnClickEvent:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4G1-ah-X5W"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-yK-W5j">
-                        <rect key="frame" x="162" y="43.5" width="80" height="80"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="OVt-qF-Ug5"/>
-                            <constraint firstAttribute="height" constant="80" id="yhf-n2-bu3"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="YDT-Gu-a1b" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FMZ-4a-Hc6"/>
-                    <constraint firstItem="rbk-yK-W5j" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f7o-cJ-JLs"/>
-                    <constraint firstItem="rbk-yK-W5j" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="hnf-NU-oGg"/>
                     <constraint firstItem="YDT-Gu-a1b" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="vfO-j0-nsk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="logoBtn" destination="YDT-Gu-a1b" id="NQb-h7-Hb2"/>
-                <outlet property="logoImageView" destination="rbk-yK-W5j" id="a3Z-Co-8qt"/>
             </connections>
             <point key="canvasLocation" x="328" y="325.5"/>
         </tableViewCell>

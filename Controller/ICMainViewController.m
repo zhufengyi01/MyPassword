@@ -12,8 +12,7 @@
 #import "ICFullScreenAnd3DNavigation.h"
 #import "ICAddPasswordViewController.h"
 
-@interface ICMainViewController ()<UITableViewDelegate,UITableViewDataSource>
-{
+@interface ICMainViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
 }
 

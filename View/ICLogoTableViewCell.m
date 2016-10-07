@@ -25,9 +25,8 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    self.logoImageView.layer.cornerRadius = 6;
-    self.logoImageView.clipsToBounds = YES;
-
+    self.logoBtn.layer.cornerRadius = 4;
+    self.logoBtn.clipsToBounds = YES;
 }
 
 

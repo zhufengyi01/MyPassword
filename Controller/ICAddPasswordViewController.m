@@ -8,10 +8,10 @@
 
 #import "ICAddPasswordViewController.h"
 
-@interface ICAddPasswordViewController ()<ICLogoTableViewCellDelegate,UIImagePickerControllerDelegate>
-
-{
+@interface ICAddPasswordViewController ()<ICLogoTableViewCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+    
     UIImagePickerController *imagePicker;
+    UIImage *logoImage;
 }
 @property(nonatomic,strong) ICLogoTableViewCell *logoCell;
 
@@ -20,6 +20,8 @@
 @property(nonatomic,strong) ICInputTableViewCell *userNameCell;
 
 @property(nonatomic,strong) ICInputTableViewCell *platformPassCell;
+
+@property(nonatomic,strong) ICInputTableViewCell *platformPassCell2;
 
 
 @end
@@ -44,7 +46,7 @@
         [self registerCellWithNibName:NSStringFromClass([ICLogoTableViewCell class]) reuseIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
         _logoCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
         _logoCell.delegate = self;
-        _logoCell.logoImageView.image = [UIImage imageNamed:@"addlogo"];
+        [_logoCell.logoBtn setBackgroundImage: [UIImage imageNamed:@"addlogo"] forState:UIControlStateNormal];
     }
     return _logoCell;
 }
@@ -89,10 +91,23 @@
     return _platformPassCell;
 }
 
+-(ICInputTableViewCell *)platformPassCell2
+{
+    if (!_platformPassCell2) {
+        
+        [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewPassCell2"];
+        _platformPassCell2 = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewPassCell2"];
+        _platformPassCell2.inputTextField.placeholder = @"please input user password 2";
+        _platformPassCell2.userCopyBtn.hidden = YES;
+        _platformPassCell2.logoImageView.image = [UIImage imageNamed:@"trPassword"];
+    }
+    return _platformPassCell2;
+}
+
 
 #pragma mark Privite Method
--(void)createNavigation
-{
+-(void)createNavigation{
+    
     self.navigationItem.title = @"add Password";
     
     UIBarButtonItem *barItem  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(rightNavigationHandle)];
@@ -112,8 +127,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
--(void)rightNavigationHandle
-{
+-(void)rightNavigationHandle{
+    
     if (self.platformNameCell.inputTextField.text.length==0) {
         [SVProgressHUD showErrorWithStatus:@"please input platform name" maskType:SVProgressHUDMaskTypeBlack];
         return;
@@ -134,12 +149,19 @@
     NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
     
     KeyModel *model  =[KeyModel new];
-    if (self.logoCell.logoImageView.image) {
-        model.logoImage =  self.logoCell.logoImageView.image;
+    
+    if (logoImage) {
+        
+        model.logoImage =  logoImage;
     }
+    
     model.platformName  = self.platformNameCell.inputTextField.text;
     model.userName =  self.userNameCell.inputTextField.text;
     model.platformPassword  = self.platformPassCell.inputTextField.text;
+    model.platformPassword2 = self.platformPassCell2.inputTextField.text;
+    if (!model.platformPassword2) {
+        model.platformPassword2 = @"";
+    }
     
     NSMutableArray *tempArr  = [NSMutableArray arrayWithArray:keyList];
     [tempArr addObject:model];
@@ -153,12 +175,12 @@
 
 #pragma mark Delegate 
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 4;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 5;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (indexPath.row==0) {
         return 200;
     }
@@ -171,24 +193,28 @@
     if (indexPath.row==0) {
         
         return self.logoCell;
-    }else if(indexPath.row==1)
-    {
+        
+    }else if(indexPath.row==1){
+        
         return self.platformNameCell;
         
-    }else if(indexPath.row==2)
-    {
+    }else if(indexPath.row==2){
+        
         return self.userNameCell;
     }
-    else if(indexPath.row==3)
-    {
+    else if(indexPath.row==3){
+        
         return self.platformPassCell;
+        
+    }else if(indexPath.row == 4){
+        
+        return self.platformPassCell2;
     }
     return [UITableViewCell new];
 }
 
 
--(void)logoTableViewCellChooseImageButtonClick
-{
+-(void)logoTableViewCellChooseImageButtonClick{
     
     imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
@@ -201,12 +227,10 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0){
  
-    BLOCK_WEAK_SELF;
-    weakSelf.logoCell.logoImageView.image = image;
-
+    logoImage = image;
+    [self.logoCell.logoBtn setBackgroundImage:logoImage forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:^{
        
         

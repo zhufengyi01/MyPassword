@@ -7,8 +7,9 @@
 //
 
 #import "ICDetailViewController.h"
+#import "Masonry.h"
 
-@interface ICDetailViewController ()<ICLogoTableViewCellDelegate,UIImagePickerControllerDelegate,ICButtonTableViewCellDelegate>
+@interface ICDetailViewController ()<ICLogoTableViewCellDelegate,UIImagePickerControllerDelegate,ICButtonTableViewCellDelegate,UINavigationControllerDelegate>
 {
    UIImagePickerController *imagePicker;
     
@@ -32,6 +33,9 @@
 @property(nonatomic,strong) ICInputTableViewCell *userNameCell;
 
 @property(nonatomic,strong) ICInputTableViewCell *platformPassCell;
+
+@property(nonatomic,strong) ICInputTableViewCell *platformPassCell2;
+
 
 @property(nonatomic,strong)ICButtonTableViewCell *comformCell;
 
@@ -64,7 +68,18 @@
         
         [self registerCellWithNibName:NSStringFromClass([ICLogoTableViewCell class]) reuseIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
         _logoCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ICLogoTableViewCell class])];
-        _logoCell.logoImageView.image = self.model.logoImage;
+        
+        if (!self.model.logoImage) {
+                        
+            [self.logoCell.logoBtn setBackgroundImage:[UIImage imageWithColor:[UIColor orangeColor]] forState:UIControlStateNormal];
+            [self.logoCell.logoBtn setTitle:self.model.platformName forState:UIControlStateNormal];
+            [self.logoCell.logoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            
+        }else{
+            
+            [_logoCell.logoBtn setBackgroundImage:self.model.logoImage forState:UIControlStateNormal];
+        }
+        
         _logoCell.delegate = self;
         _logoCell.logoBtn.enabled = NO;
     }
@@ -121,9 +136,27 @@
 }
 
 
+-(ICInputTableViewCell *)platformPassCell2{
+    
+    if (!_platformPassCell2) {
+        
+        [self registerCellWithNibName:NSStringFromClass([ICInputTableViewCell class]) reuseIdentifier:@"ICInputTableViewPassCell2"];
+        _platformPassCell2 = [self.tableView dequeueReusableCellWithIdentifier:@"ICInputTableViewPassCell2"];
+        _platformPassCell2.inputTextField.text = self.model.platformPassword2;
+        _platformPassCell2.inputTextField.enabled = NO;
+        _platformPassCell2.inputTextField.placeholder = @"please input platform password";
+        [_platformPassCell2.userCopyBtn addTarget:self action:@selector(copyPassword) forControlEvents:UIControlEventTouchUpInside];
+        _platformPassCell2.logoImageView.image = [UIImage imageNamed:@"trPassword"];
+        
+    }
+    return _platformPassCell2;
+}
 
--(ICButtonTableViewCell *)comformCell
-{
+
+
+
+-(ICButtonTableViewCell *)comformCell{
+    
     if (!_comformCell) {
         
         [self registerCellWithNibName:NSStringFromClass([ICButtonTableViewCell class]) reuseIdentifier:@"ICButtonTableViewCell"];
@@ -135,8 +168,8 @@
 }
 
 #pragma mark Privite Method
--(void)createNavigation
-{
+-(void)createNavigation{
+    
     self.navigationItem.title = @"Password Detail";
 
     self.rightBarItem = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -173,6 +206,7 @@
     _userNameCell.inputTextField.enabled = YES;
     _platformPassCell.inputTextField.enabled = YES;
     _platformNameCell.inputTextField.enabled = YES;
+    _platformPassCell2.inputTextField.enabled = YES;
     
     //隐藏copy
     _userNameCell.userCopyBtn.hidden = YES;
@@ -183,8 +217,8 @@
    
 }
 #pragma mark 完成状态
--(void)done
-{
+-(void)done{
+    
     if (self.platformNameCell.inputTextField.text.length==0) {
         [SVProgressHUD showErrorWithStatus:@"please input platform name" maskType:SVProgressHUDMaskTypeBlack];
         return;
@@ -208,7 +242,12 @@
     model.logoImage = logoImage;
     model.userName =  self.userNameCell.inputTextField.text;
     model.platformPassword = self.platformPassCell.inputTextField.text;
+    model.platformPassword2 = self.platformPassCell2.inputTextField.text;
     
+    if (!model.platformPassword2) {
+     
+        model.platformPassword2 = @"";
+    }
     
     NSString *keyPath = [userPasswordKey stringByAppendingPathComponent:@"userKey"];
     NSArray *keyList = [NSKeyedUnarchiver unarchiveObjectWithFile:keyPath];
@@ -221,15 +260,23 @@
     BOOL y = [NSKeyedArchiver archiveRootObject:tempArr toFile:keyPath];
 
     if (y) {
-        [self.navigationController popViewControllerAnimated:YES];
+        
+        [SVProgressHUD showSuccessWithStatus:@"编辑成功"];
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+            [self.navigationController popViewControllerAnimated:YES];
+
+            
+        });
     }
     
     
 }
 
 #pragma mark 复制功能
--(void)copyPlatformName
-{
+-(void)copyPlatformName{
+    
     if (self.platformNameCell.inputTextField.text.length==0) {
         
         [SVProgressHUD showErrorWithStatus:@"copy fail" maskType:SVProgressHUDMaskTypeBlack];
@@ -272,23 +319,24 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.editing) {
-        return 5;
+        return 6;
     }
-    return 4;
+    return 5;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
+        
         return 200;
-    } else if(indexPath.row==4)
+    
+    } else if(indexPath.row==5)
     {
         return 120;
     }
     return 60.0f;
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {
         
@@ -308,14 +356,17 @@
         
     }else if(indexPath.row==4)
     {
+        return self.platformPassCell2;
+        
+    }else if(indexPath.row == 5){
+        
         return self.comformCell;
     }
     return [UITableViewCell new];
 }
 
 
--(void)logoTableViewCellChooseImageButtonClick
-{
+- (void)logoTableViewCellChooseImageButtonClick{
     
     imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
@@ -329,11 +380,11 @@
 }
 
 #pragma mark UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0){
     
-    self.logoCell.logoImageView.image = image;
     logoImage = image;
+    [self.logoCell.logoBtn setTitle:@"" forState:UIControlStateNormal];
+    [self.logoCell.logoBtn setBackgroundImage:logoImage forState:UIControlStateNormal];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
@@ -341,8 +392,7 @@
 
 #pragma mark ICButtonTableViewCellDelegate
 #pragma mark 点击删除
--(void)buttonTableViewCellClick;
-{
+-(void)buttonTableViewCellClick{
     
     [WCAlertView showAlertWithTitle:@"Do you really want to delete it" message:nil customizationBlock:^(WCAlertView *alertView) {
          

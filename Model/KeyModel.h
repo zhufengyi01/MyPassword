@@ -25,6 +25,11 @@
 @property(nonatomic,strong)NSString *platformPassword;
 
 /**
+ *  平台密码2
+ */
+@property(nonatomic,strong)NSString *platformPassword2;
+
+/**
  *  logo 图片名
  */
 @property(nonatomic,strong)UIImage *logoImage;

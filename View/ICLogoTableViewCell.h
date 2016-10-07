@@ -23,6 +23,5 @@
 
 @property(nonatomic,weak)id <ICLogoTableViewCellDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
 @end

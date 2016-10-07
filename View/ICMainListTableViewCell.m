@@ -7,6 +7,7 @@
 //
 
 #import "ICMainListTableViewCell.h"
+#import "Masonry.h"
 
 @interface ICMainListTableViewCell ()
 
@@ -27,11 +28,32 @@
 }
 
 
--(void)setModel:(KeyModel *)model
-{
-    _model = model;
+-(void)setModel:(KeyModel *)model{
     
-    self.logoImageView.image = model.logoImage;
+    _model = model;
+    if (!model.logoImage) {
+        
+        UIImage *image=  [UIImage imageWithColor:[UIColor orangeColor]];
+        self.logoImageView.image = image;
+        
+        UILabel *placeLable = [UILabel new];
+        [self.logoImageView addSubview:placeLable];
+        [placeLable mas_makeConstraints:^(MASConstraintMaker *make) {
+           
+            make.edges.equalTo(self.logoImageView);
+        }];
+        placeLable.textColor = [UIColor whiteColor];
+        placeLable.font = [UIFont systemFontOfSize:16];
+        placeLable.text = model.platformName;
+        placeLable.textAlignment = NSTextAlignmentCenter;
+        
+        
+    }else{
+    
+        self.logoImageView.image = model.logoImage;
+    }
+    
+    
     self.titleLbl.text = model.platformName;
     self.titleLbl.font = KMAIN_FONT(14);
 
