@@ -31,12 +31,15 @@
 -(void)setModel:(KeyModel *)model{
     
     _model = model;
+    UIImage *image = nil;
+    UILabel *placeLable = nil;
+    
     if (!model.logoImage) {
         
-        UIImage *image=  [UIImage imageWithColor:[UIColor orangeColor]];
+        image=  [UIImage imageWithColor:[UIColor orangeColor]];
         self.logoImageView.image = image;
         
-        UILabel *placeLable = [UILabel new];
+        placeLable = [UILabel new];
         [self.logoImageView addSubview:placeLable];
         [placeLable mas_makeConstraints:^(MASConstraintMaker *make) {
            
