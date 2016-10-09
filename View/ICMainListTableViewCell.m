@@ -31,12 +31,12 @@
 -(void)setModel:(KeyModel *)model{
     
     _model = model;
-    UIImage *image = nil;
     UILabel *placeLable = nil;
-    
+
+    [self.logoImageView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     if (!model.logoImage) {
         
-        image=  [UIImage imageWithColor:[UIColor orangeColor]];
+        UIImage  *image = [UIImage imageWithColor:[UIColor orangeColor]];
         self.logoImageView.image = image;
         
         placeLable = [UILabel new];
